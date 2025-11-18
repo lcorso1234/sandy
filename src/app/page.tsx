@@ -1,3 +1,5 @@
+'use client';
+
 export default function Home() {
   const details = [
     { label: "Business", value: "The Invisible Hand" },
@@ -19,6 +21,29 @@ export default function Home() {
   ].join("\n");
 
   const contactHref = `data:text/vcard;charset=utf-8,${encodeURIComponent(vcard)}`;
+  const smsNumber = "+17089328860";
+  const textMessage =
+    "Hi Sandy! As the owner of Toomey Reporting and a food card strategist helping the homeless, when could we connect this week?";
+  const textHref = `sms:${smsNumber}?body=${encodeURIComponent(textMessage)}`;
+
+  const handleSaveAndMessage = () => {
+    if (typeof document === "undefined") {
+      return;
+    }
+
+    const link = document.createElement("a");
+    link.href = contactHref;
+    link.download = "Sandy-Corso-The-Invisible-Hand.vcf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    if (typeof window !== "undefined") {
+      window.setTimeout(() => {
+        window.location.href = textHref;
+      }, 400);
+    }
+  };
 
   return (
     <div className="page-shell flex min-h-screen items-center justify-center px-4 py-10">
@@ -55,13 +80,18 @@ export default function Home() {
           </p>
         </section>
 
-        <a
-          className="jiggle-button accent-button flex w-full items-center justify-center rounded-lg px-6 py-4 text-base font-semibold transition"
-          download="Sandy-Corso-The-Invisible-Hand.vcf"
-          href={contactHref}
-        >
-          Save Contact
-        </a>
+        <div className="space-y-3">
+          <button
+            type="button"
+            className="jiggle-button accent-button flex w-full flex-col items-center justify-center rounded-lg px-6 py-4 text-base font-semibold transition"
+            onClick={handleSaveAndMessage}
+          >
+            <span>Save Contact</span>
+            <span className="text-xs font-normal text-black/70">
+              and open a pre-filled text to schedule
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   );
