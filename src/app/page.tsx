@@ -1,13 +1,6 @@
 'use client';
 
 export default function Home() {
-  const details = [
-    { label: "Business", value: "The Invisible Hand" },
-    { label: "Name", value: "Sandy Corso" },
-    { label: "Phone", value: "1.708.932.8860" },
-    { label: "Website", value: "toomeyreporting.com" },
-  ];
-
   const vcard = [
     "BEGIN:VCARD",
     "VERSION:3.0",
@@ -55,30 +48,13 @@ export default function Home() {
           </p>
         </div>
 
-        <header className="space-y-2">
+        <header className="space-y-2 text-center">
           <p className="text-sm uppercase tracking-[0.4em] text-white/60">
             The Invisible Hand
           </p>
           <h1 className="text-4xl font-semibold tracking-tight">Sandy Corso</h1>
           <p className="text-base text-white/75">Food Card Strategist</p>
         </header>
-
-        <section className="space-y-4">
-          <dl className="space-y-3">
-            {details.map((item) => (
-              <div
-                key={item.label}
-                className="flex items-center justify-between rounded-2xl border border-white/5 bg-white/5 px-4 py-3 text-sm shadow-inner-card"
-              >
-                <dt className="text-white/55">{item.label}</dt>
-                <dd className="font-medium text-white">{item.value}</dd>
-              </div>
-            ))}
-          </dl>
-          <p className="accent-text text-center text-xs uppercase tracking-[0.3em]">
-            Powered by Toomey Reporting
-          </p>
-        </section>
 
         <div className="space-y-3">
           <button
