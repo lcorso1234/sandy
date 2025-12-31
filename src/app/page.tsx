@@ -67,6 +67,15 @@ export default function Home() {
               and open a pre-filled text to schedule
             </span>
           </button>
+          <p className="text-center text-xs text-white/60">
+            Powered by{" "}
+            <a
+              href="https://toomeyreporting.com"
+              className="text-white underline underline-offset-4 hover:text-white/80"
+            >
+              Toomey Reporting
+            </a>
+          </p>
         </div>
       </div>
     </div>
