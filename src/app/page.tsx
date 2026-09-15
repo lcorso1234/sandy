@@ -39,45 +39,77 @@ export default function Home() {
   };
 
   return (
-    <div className="page-shell flex min-h-screen items-center justify-center px-4 py-10">
-      <div className="business-card w-full max-w-md space-y-8 rounded-[32px] border border-white/5 bg-gradient-to-br from-[#2f363b] via-[#262b30] to-[#1b2024] p-8 text-white">
-        <div className="flex items-center gap-3">
-          <span className="accent-dot" aria-hidden="true" />
-          <p className="accent-text text-[0.75rem] font-semibold uppercase tracking-[0.4em]">
-            First thing is - we give food cards.
-          </p>
-        </div>
+    <>
+      {/* Mobile Design */}
+      <div className="page-shell flex min-h-screen items-center justify-center px-4 py-10 md:hidden">
+        <div className="business-card w-full max-w-md space-y-8 rounded-[32px] border border-white/5 bg-gradient-to-br from-[#2f363b] via-[#262b30] to-[#1b2024] p-8 text-white">
+          <div className="flex items-center gap-3">
+            <span className="accent-dot" aria-hidden="true" />
+            <p className="accent-text text-[0.75rem] font-semibold uppercase tracking-[0.4em]">
+              First thing is - we give food cards.
+            </p>
+          </div>
 
-        <header className="space-y-2 text-center">
-          <p className="text-sm uppercase tracking-[0.4em] text-white/60">
-            The Invisible Hand
-          </p>
-          <h1 className="text-4xl font-semibold tracking-tight">Sandy Corso</h1>
-          <p className="text-base text-white/75">Food Card Strategist</p>
-        </header>
+          <header className="space-y-2 text-center">
+            <p className="text-sm uppercase tracking-[0.4em] text-white/60">
+              The Invisible Hand
+            </p>
+            <h1 className="text-4xl font-semibold tracking-tight">Sandy Corso</h1>
+            <p className="text-base text-white/75">Food Card Strategist</p>
+          </header>
 
-        <div className="space-y-3">
-          <button
-            type="button"
-            className="jiggle-button accent-button flex w-full flex-col items-center justify-center rounded-lg px-6 py-4 text-base font-semibold transition"
-            onClick={handleSaveAndMessage}
-          >
-            <span>Save Contact</span>
-            <span className="text-xs font-normal text-black/70">
-              and open a pre-filled text to schedule
-            </span>
-          </button>
-          <p className="text-center text-xs text-white/60">
-            Powered by{" "}
-            <a
-              href="https://toomeyreporting.com"
-              className="text-white underline underline-offset-4 hover:text-white/80"
+          <div className="space-y-3">
+            <button
+              type="button"
+              className="jiggle-button accent-button flex w-full flex-col items-center justify-center rounded-lg px-6 py-4 text-base font-semibold transition"
+              onClick={handleSaveAndMessage}
             >
-              Toomey Reporting
-            </a>
-          </p>
+              <span>Save Contact</span>
+              <span className="text-xs font-normal text-black/70">
+                and open a pre-filled text to schedule
+              </span>
+            </button>
+            <p className="text-center text-xs text-white/60">
+              Powered by{" "}
+              <a
+                href="https://toomeyreporting.com"
+                className="text-white underline underline-offset-4 hover:text-white/80"
+              >
+                Toomey Reporting
+              </a>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+
+      {/* Desktop Design */}
+      <div className="hidden min-h-screen items-center justify-center bg-gray-50 px-8 py-12 md:flex">
+        <div className="w-full max-w-2xl rounded-2xl bg-white p-12 text-center shadow-xl border border-gray-100">
+          <h1 className="mb-6 text-4xl font-bold text-gray-900 tracking-tight">Toomey Reporting, Inc.</h1>
+          
+          <div className="space-y-4 text-lg text-gray-600">
+            <p>
+              Please contact Sandy Toomey for Court Reporting Services at:
+            </p>
+            
+            <div className="flex flex-col items-center justify-center gap-2 pt-4">
+              <a 
+                href="tel:3128530648" 
+                className="text-2xl font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+              >
+                (312) 853-0648
+              </a>
+              <span className="text-gray-400">or</span>
+              <a 
+                href="mailto:toomeyrep@sbcglobal.net" 
+                className="text-xl font-medium text-blue-600 hover:text-blue-700 transition-colors"
+              >
+                toomeyrep@sbcglobal.net
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
